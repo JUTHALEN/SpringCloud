@@ -32,12 +32,12 @@ public class QualificationController {
         return ResponseEntity.ok(service.getAllQualifications());
     }
 
-    @PostMapping("/qualifications/user/{userId}")
+    @GetMapping("/qualifications/user/{userId}")
     ResponseEntity<List<Qualification>> getQualificationsByUserId(@PathVariable String userId) {
         return ResponseEntity.ok(service.getQualificationsByUserId(userId));
     }
 
-    @PostMapping("/qualifications/hotel/{hotelId}")
+    @GetMapping("/qualifications/hotel/{hotelId}")
     ResponseEntity<List<Qualification>> getQualificationsByHotelId(@PathVariable String hotelId) {
         return ResponseEntity.ok(service.getQualificationsByHotelId(hotelId));
     }

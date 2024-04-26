@@ -1,9 +1,13 @@
 package com.msvc.user.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,14 +22,17 @@ public class User {
 
     @Id
     @Column(name = "user_id")
-    private String userId;
+    String userId;
 
     @Column(name = "nome")
-    private String name;
+    String name;
 
     @Column(name = "email")
-    private String email;
+    String email;
 
     @Column(name = "information")
-    private String information;
+    String information;
+
+    @Transient
+    List<Qualification> qualifications = new ArrayList<>();
 }
