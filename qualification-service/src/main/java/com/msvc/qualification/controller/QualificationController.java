@@ -1,0 +1,44 @@
+package com.msvc.qualification.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.msvc.qualification.entity.Qualification;
+import com.msvc.qualification.service.QualificationService;
+
+@RestController
+@RequestMapping("/api")
+public class QualificationController {
+
+    @Autowired
+    QualificationService service;
+
+    @PostMapping("/qualification")
+    ResponseEntity<Qualification> create(@RequestBody Qualification qualification) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.create(qualification));
+    }
+
+    @GetMapping("/qualifications")
+    ResponseEntity<List<Qualification>> getAllQualifications() {
+        return ResponseEntity.ok(service.getAllQualifications());
+    }
+
+    @PostMapping("/qualifications/user/{userId}")
+    ResponseEntity<List<Qualification>> getQualificationsByUserId(@PathVariable String userId) {
+        return ResponseEntity.ok(service.getQualificationsByUserId(userId));
+    }
+
+    @PostMapping("/qualifications/hotel/{hotelId}")
+    ResponseEntity<List<Qualification>> getQualificationsByHotelId(@PathVariable String hotelId) {
+        return ResponseEntity.ok(service.getQualificationsByHotelId(hotelId));
+    }
+}
