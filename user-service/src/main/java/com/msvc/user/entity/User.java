@@ -3,6 +3,7 @@ package com.msvc.user.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.msvc.user.dto.Qualification;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
