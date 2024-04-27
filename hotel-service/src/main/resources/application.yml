@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/msvc
-    username: nci
-    password: new-uncommon-interface
+    url: jdbc:mysql://localhost:3306/microservice
+    username: judith
+    password: admin
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:

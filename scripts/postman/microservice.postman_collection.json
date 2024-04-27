@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "da1c5f31-3df1-4b15-b7b7-965d5cce38b7",
+		"name": "Curso microservicios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26631014"
+	},
+	"item": [
+		{
+			"name": "User-service",
+			"item": [
+				{
+					"name": "Save User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Pepe\",\r\n    \"email\": \"pepe@gmail.com\",\r\n    \"information\": \"nada\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/user/id/d369e643-8fae-4bbe-9865-a30a1747d46b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"user",
+								"id",
+								"d369e643-8fae-4bbe-9865-a30a1747d46b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "hotel-service",
+			"item": [
+				{
+					"name": "create Hotel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Buena vida\",\r\n    \"address\":\"C/ falsa 1234, Madrid\",\r\n    \"information\":\"Hotel cuatro estrellas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/hotel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"hotel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllHotels",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Buena vida\",\r\n    \"address\":\"C/ falsa 1234, Madrid\",\r\n    \"information\":\"Hotel cuatro estrellas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/hotels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"hotels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllHotelById",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Buena vida\",\r\n    \"address\":\"C/ falsa 1234, Madrid\",\r\n    \"information\":\"Hotel cuatro estrellas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/hotel/5800399d-cb0d-4bb3-8990-4eddb362900",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"hotel",
+								"5800399d-cb0d-4bb3-8990-4eddb362900"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "qualification-service",
+			"item": [
+				{
+					"name": "createQualification",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"3d164a7f-90d0-4768-9bb2-fdc0624907c1\",\r\n    \"hotelId\": \"7a84e65a-d97c-4b5d-a56e-34b0f5d705ad\",\r\n    \"qualification\": 8,\r\n    \"observation\":\"personal amable, pero la habitaciónera demasiado pequeña\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/qualification",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"qualification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllQualifications",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"3d164a7f-90d0-4768-9bb2-fdc0624907c1\",\r\n    \"hotelId\": \"7a84e65a-d97c-4b5d-a56e-34b0f5d705ad\",\r\n    \"qualification\": 8,\r\n    \"observation\":\"personal amable, pero la habitaciónera demasiado pequeña\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/qualifications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"qualifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getQualificationsByUserId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"3d164a7f-90d0-4768-9bb2-fdc0624907c1\",\r\n    \"hotelId\": \"7a84e65a-d97c-4b5d-a56e-34b0f5d705ad\",\r\n    \"qualification\": 8,\r\n    \"observation\":\"personal amable, pero la habitaciónera demasiado pequeña\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/qualifications/user/3d164a7f-90d0-4768-9bb2-fdc0624907c1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"qualifications",
+								"user",
+								"3d164a7f-90d0-4768-9bb2-fdc0624907c1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getQualificationsByHotelId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"3d164a7f-90d0-4768-9bb2-fdc0624907c1\",\r\n    \"hotelId\": \"7a84e65a-d97c-4b5d-a56e-34b0f5d705ad\",\r\n    \"qualification\": 8,\r\n    \"observation\":\"personal amable, pero la habitaciónera demasiado pequeña\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/qualifications/hotel/7a84e65a-d97c-4b5d-a56e-34b0f5d705ad",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"qualifications",
+								"hotel",
+								"7a84e65a-d97c-4b5d-a56e-34b0f5d705ad"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

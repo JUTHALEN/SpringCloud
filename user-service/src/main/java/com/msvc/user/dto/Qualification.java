@@ -1,4 +1,4 @@
-package com.msvc.user.entity;
+package com.msvc.user.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,4 +18,6 @@ public class Qualification {
     int qualification;
 
     String observation;
+    
+    Hotel hotel;
 }

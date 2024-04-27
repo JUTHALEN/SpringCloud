@@ -3,8 +3,8 @@ server:
 
 spring:
   mongodb:
-    uri: mongodb://localhost:27017
-    database: microservicios
+    url: mongodb://localhost:27017
+    database: microservice
 
   application:
     name: QUALIFICATION-SERVICE
