@@ -3,7 +3,7 @@ server:
 
 spring:
   mongodb:
-    url: mongodb://localhost:27017
+    uri: mongodb://localhost:27017/microservice
     database: microservice
 
   application:

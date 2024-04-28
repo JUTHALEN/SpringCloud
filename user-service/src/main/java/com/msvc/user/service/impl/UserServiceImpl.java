@@ -7,10 +7,10 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import com.msvc.user.dto.Hotel;
+import com.msvc.user.external.service.HotelService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -30,6 +30,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     UserRepository userRepository;
+    
+    @Autowired
+    HotelService hotelService;
 
     @Override
     public User saveUser(User user) {
@@ -52,12 +55,11 @@ public class UserServiceImpl implements UserService {
         logger.info("{} ", (Object)qualificationByUser);
         final var qualifications = Arrays.stream(qualificationByUser).collect(Collectors.toCollection(ArrayList::new));
         
-        final var listQualifications = qualifications.stream().peek(qualification -> {
-           logger.info("Qualification: " + qualification.getHotelId());
-            ResponseEntity<Hotel> forEntity = restTemplate.getForEntity("http://HOTEL-SERVICE/api/hotel/" + qualification.getHotelId(), Hotel.class);
-            Hotel hotel = forEntity.getBody();
+        final var listQualifications = qualifications.stream().map(qualification -> {
+            Hotel hotel = hotelService.getHotel(qualification.getHotelId());
             qualification.setHotel(hotel);
-            logger.info("Response with code status: {}", forEntity.getStatusCode());
+            logger.info("Hotel: {}", hotel);
+            return qualification;
         }).toList();
         user.setQualifications(listQualifications);
         return user;
