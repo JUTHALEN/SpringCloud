@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
         
         final var user= userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User Not Found, with id: " + userId));
         
-        final var qualificationByUser = restTemplate.getForObject("http://QUALIFICATION-SERVICE/api/qualifications/user/" + user.getUserId(), Qualification[].class);
+        final var qualificationByUser = restTemplate.getForObject("http://QUALIFICATION-SERVICE/api/qualification/user/" + user.getUserId(), Qualification[].class);
         logger.info("{} ", (Object)qualificationByUser);
         final var qualifications = Arrays.stream(qualificationByUser).collect(Collectors.toCollection(ArrayList::new));
         

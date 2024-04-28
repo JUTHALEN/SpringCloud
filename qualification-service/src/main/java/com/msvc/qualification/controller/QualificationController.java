@@ -16,28 +16,28 @@ import com.msvc.qualification.entity.Qualification;
 import com.msvc.qualification.service.QualificationService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/qualification")
 public class QualificationController {
 
     @Autowired
     QualificationService service;
 
-    @PostMapping("/qualification")
+    @PostMapping
     ResponseEntity<Qualification> create(@RequestBody Qualification qualification) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.create(qualification));
     }
 
-    @GetMapping("/qualifications")
+    @GetMapping
     ResponseEntity<List<Qualification>> getAllQualifications() {
         return ResponseEntity.ok(service.getAllQualifications());
     }
 
-    @GetMapping("/qualifications/user/{userId}")
+    @GetMapping("/user/{userId}")
     ResponseEntity<List<Qualification>> getQualificationsByUserId(@PathVariable String userId) {
         return ResponseEntity.ok(service.getQualificationsByUserId(userId));
     }
 
-    @GetMapping("/qualifications/hotel/{hotelId}")
+    @GetMapping("/hotel/{hotelId}")
     ResponseEntity<List<Qualification>> getQualificationsByHotelId(@PathVariable String hotelId) {
         return ResponseEntity.ok(service.getQualificationsByHotelId(hotelId));
     }

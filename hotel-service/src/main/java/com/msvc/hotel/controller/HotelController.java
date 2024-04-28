@@ -16,23 +16,23 @@ import com.msvc.hotel.entity.Hotel;
 import com.msvc.hotel.service.HotelService;
 
 @RestController
-@RequestMapping("api/")
+@RequestMapping("api/hotel")
 public class HotelController {
 
     @Autowired
     HotelService service;
 
-    @PostMapping("hotel")
+    @PostMapping
     public ResponseEntity<Hotel> createHotel(@RequestBody Hotel hotel){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.create(hotel));
     }
 
-    @GetMapping("hotels")
+    @GetMapping
     public ResponseEntity<List<Hotel>> getAllHotels(){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.getAll());
     }
 
-    @GetMapping("hotel/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Hotel> getHotelById(@PathVariable String id){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.getById(id));
     }
